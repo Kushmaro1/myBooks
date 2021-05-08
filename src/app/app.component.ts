@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myBooks';
+  ngOnInit(): void {
+    localStorage.setItem("1","Admin");
+    localStorage.getItem("1");
+    localStorage.setItem("2","Ak123");
+    localStorage.getItem("2");
+  }
 }

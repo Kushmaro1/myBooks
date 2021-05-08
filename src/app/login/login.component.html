@@ -1,0 +1,18 @@
+<div class="center">
+    <div *ngIf="valid" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <label style="text-align: right;" >Incorrect</label>
+        <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+<form #loginForm="ngForm" (ngSubmit)="submited(loginForm.value)">
+   <div class="loginalign">
+    <label>Username</label>
+    <input required  type="text" class="form-control" name="user" ngModel>
+</div>
+<div class="loginalign">
+    <label>Password</label>
+    <input required  type="password" class="form-control" name="pass" ngModel>
+</div>
+    <button  [disabled]="loginForm.invalid" type="submit">Login</button>
+</form>
