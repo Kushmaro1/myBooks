@@ -33,6 +33,8 @@ export class SearchComponent implements OnInit {
     private searchService: SearchService) {}
     
   ngOnInit() {
+    if (localStorage.getItem("3")=="Valid") {
+    // Get google book api search resualts
     this.favourites = false;
     this.loading = false;
     this.queryField.valueChanges
@@ -45,17 +47,20 @@ export class SearchComponent implements OnInit {
             setTimeout(() => {
               this.items = result.items;
               console.log(this.items);
-            }, 2000);
+            }, 1500);
           });
         }
       });
+      localStorage.clear()
+    }else {
+      this.router.navigateByUrl('login')
+    }
   }
-  combineSlug(id) {
-    return `${id}`;
-  }
+  //Previw
   goToLink(url: string) {
     window.open(url, "_blank");
   }
+  //Add to favorites
   add(prod){
     console.log(prod)
     if(this.favcollection.indexOf(prod)===-1){
@@ -63,7 +68,6 @@ export class SearchComponent implements OnInit {
    console.log(this.favcollection)
    return this.favcollection;
     }
-   
     }
     favlist(){
       this.favourites=true;
@@ -71,6 +75,7 @@ export class SearchComponent implements OnInit {
     backtolist(){
       this.favourites=false;
     }
+    //Remove from favorites
     del(book){
     return this.favcollection = this.favcollection.filter(item => item !== book);
     }

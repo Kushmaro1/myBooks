@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Router} from '@angular/router'
 @Component({
@@ -11,24 +11,19 @@ export class LoginComponent implements OnInit {
   valid=false
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-   
-  }
-  
+  ngOnInit(): void {}
   secured=true;
   submited(data){
     
     if (data.pass==localStorage.getItem("2")
     &&data.user==localStorage.getItem("1")) {
+      localStorage.setItem("3","Valid")
       console.log("works")
       this.router.navigateByUrl('search')
-      
       }
       else {
         this.valid=true
       }
-  
-
   }
   closeAlert(){
     this.valid=false

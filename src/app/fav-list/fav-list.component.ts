@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { bookDetails } from '../bookDetails';
 
 @Component({
   selector: 'app-fav-list',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./fav-list.component.css']
 })
 export class FavListComponent implements OnInit {
-  @Input() product: any;
+  
 
   constructor() { }
 
