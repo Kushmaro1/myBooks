@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { bookDetails } from '../bookDetails';
+import { BookdetailsService } from '../bookdetails.service'
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-fav-list',
@@ -8,10 +10,23 @@ import { bookDetails } from '../bookDetails';
 })
 export class FavListComponent implements OnInit {
   
+  
 
-  constructor() { }
+  constructor(private bookdetailservice: BookdetailsService,
+    private router: Router) { }
 
   ngOnInit(): void {
-  }
+    localStorage.setItem("3","Valid")
 
+  }
+  bookDet = this.bookdetailservice.getItems();
+
+  back(book){
+    localStorage.setItem("3","Valid");
+    this.router.navigateByUrl('search');
+    return this.bookDet = this.bookDet.filter(item => item !== book);
+    
+   
+    
+  }
 }

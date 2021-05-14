@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchService} from '../search.service';
-import {FormControl,FormGroup,Validators,FormBuilder} from "@angular/forms";
-import {
-  debounceTime,
-  map,
-  distinctUntilChanged,
-  filter,
-  switchMap
-} from "rxjs/operators";
-import { fromEvent } from "rxjs";
+import {BookdetailsService} from '../bookdetails.service'
+import {FormControl,FormBuilder} from "@angular/forms";
+import {debounceTime,distinctUntilChanged} from "rxjs/operators";
 import { Router } from "@angular/router";
 
 @Component({
@@ -30,7 +24,8 @@ export class SearchComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
     private router: Router,
-    private searchService: SearchService) {}
+    private searchService: SearchService,
+    private bookdetailsservice: BookdetailsService) {}
     
   ngOnInit() {
     if (localStorage.getItem("3")=="Valid") {
@@ -78,6 +73,11 @@ export class SearchComponent implements OnInit {
     //Remove from favorites
     del(book){
     return this.favcollection = this.favcollection.filter(item => item !== book);
+    }
+    addBook(book) {
+      this.bookdetailsservice.addBook(book);
+      console.log(book)
+      this.router.navigateByUrl('fav')
     }
     
     
