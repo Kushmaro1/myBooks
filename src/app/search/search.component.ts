@@ -12,10 +12,9 @@ import { Router } from "@angular/router";
 })
 export class SearchComponent implements OnInit {
   items: any;
-  loading;
-  favourites;
+  loading; favourites; details=false;extra;
   favcollection: any=[];
-
+  
   // pagination
   page = 1;
   pageSize = 8;
@@ -50,7 +49,12 @@ export class SearchComponent implements OnInit {
     }else {
       this.router.navigateByUrl('login')
     }
+    this.details = this.bookdetailsservice.details;
+    console.log(this.details)
   }
+  
+  
+  
   //Previw
   goToLink(url: string) {
     window.open(url, "_blank");
@@ -61,8 +65,7 @@ export class SearchComponent implements OnInit {
     if(this.favcollection.indexOf(prod)===-1){
       this.favcollection.push(prod);
    console.log(this.favcollection)
-   return this.favcollection;
-    }
+   return this.favcollection;}
     }
     favlist(){
       this.favourites=true;
@@ -76,9 +79,14 @@ export class SearchComponent implements OnInit {
     }
     addBook(book) {
       this.bookdetailsservice.addBook(book);
-      console.log(book)
-      this.router.navigateByUrl('fav')
+      this.details=true;
+      console.log(book) 
     }
+    detail(){
+      this.details=false;
+    }
+
     
+   
     
 }

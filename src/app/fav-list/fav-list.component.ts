@@ -14,19 +14,12 @@ export class FavListComponent implements OnInit {
 
   constructor(private bookdetailservice: BookdetailsService,
     private router: Router) { }
+    details: boolean;
 
   ngOnInit(): void {
-    localStorage.setItem("3","Valid")
-
+    
   }
   bookDet = this.bookdetailservice.getItems();
 
-  back(book){
-    localStorage.setItem("3","Valid");
-    this.router.navigateByUrl('search');
-    return this.bookDet = this.bookDet.filter(item => item !== book);
-    
-   
-    
-  }
+  
 }

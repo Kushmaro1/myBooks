@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class BookdetailsService {
   bookDet=[];
+  details = false;
   addBook(book) {
     this.bookDet.push(book);
   }
@@ -12,8 +13,12 @@ export class BookdetailsService {
   getItems() {
     console.log(this.bookDet)
     return this.bookDet;
-    
   }
+  detail(){
+    console.log(this.details)
+   return this.details=false;
+  }
+
 
   constructor() { }
 }

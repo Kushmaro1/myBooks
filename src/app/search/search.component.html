@@ -18,7 +18,7 @@
           <input [formControl]="queryField" class="form-control" type="search" id="keyword" placeholder="New search" typeahead-wait-ms="delay" autocomplete="off"/> 
 <!--Book search input second page-->
 <!--Go to end back from favourites-->
-          <div class="text-center" >    
+        <div class="text-center" >    
           <div *ngIf="!favourites">
             <button type="submit" (click)="favlist()" class="btn btn-link btn-lg">Favourites List</button>
           </div>
@@ -29,7 +29,9 @@
         </div>   
 <!--Go to end back from favourites--> 
 <!--Search resualt table-->
+
         <div *ngIf="items && !favourites" class="col-12 mt-5">
+          <div *ngIf="!details" class="col-12 mt-5">
           <div class="row justify-content-around">
             <table class="table table-striped">
               <thead>
@@ -60,6 +62,7 @@
             <!--Paignation-->
           </div>
         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +89,11 @@
   </div>
   </div>
   </div>
-  
+  <!--Details view-->
+  <div *ngIf="details">
+  <app-fav-list></app-fav-list>
+  <button type="button" (click)="detail()" >Back</button>
+</div>
   
   
   
