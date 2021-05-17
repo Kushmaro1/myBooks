@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'myBooks';
   ngOnInit(): void {
-    localStorage.setItem("1","Admin");
+    localStorage.setItem("1", "Admin");
     localStorage.getItem("1");
-    localStorage.setItem("2","Ak123");
+    localStorage.setItem("2", "****");
     localStorage.getItem("2");
   }
 }

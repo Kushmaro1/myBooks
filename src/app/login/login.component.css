@@ -8,8 +8,8 @@ input.ng-valid{
     position: absolute;  
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     border: 5px solid grey;
+    transform: translate(-50%, -50%);
     padding: 10px;
    }
 

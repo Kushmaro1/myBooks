@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './login/login.component';
-import {SearchComponent} from './search/search.component'
-import {FavListComponent} from './fav-list/fav-list.component'
+import {MainComponent} from './main/main.component'
+import {DetailsComponent} from './details/details.component'
 
 const routes: Routes = [{
 path: '',
@@ -13,12 +13,12 @@ path: 'login',
 component : LoginComponent
 },
 {
-  path: 'search',
-  component : SearchComponent
+  path: 'main',
+  component : MainComponent
   },
   {
     path: 'fav',
-    component : FavListComponent
+    component : DetailsComponent
     }];
 
 @NgModule({

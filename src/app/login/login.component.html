@@ -1,18 +1,22 @@
+<div class="bgImg" style="background-image: url('https://www.roffeypark.ac.uk/wp-content/uploads/2018/06/the-7-best-books-to-improve-influencing-skills-2-1366x580.jpg'); height: 100vh;">
 <div class="center">
+    <!--x button-->
     <div *ngIf="valid" class="alert alert-warning alert-dismissible fade show" role="alert">
-        <label style="text-align: right;" >Incorrect</label>
+        <label style="text-align: left;">Incorrect</label>
         <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-<form #loginForm="ngForm" (ngSubmit)="submited(loginForm.value)">
-   <div class="loginalign">
-    <label>Username</label>
-    <input required  type="text" class="form-control" name="user" ngModel>
+    </div>
+    <!--x button-->
+    <!--Login form using ngForm >> usage of ngForm properties .invalid and .value for-->
+    <form #loginForm="ngForm" (ngSubmit)="submited(loginForm.value)">
+        <div class="loginalign">
+         <input required  type="text" class="form-control" placeholder="Enter username" name="user" ngModel>
+     </div>
+     <div class="loginalign">
+         <input required  type="password" placeholder="Enter password" class="form-control" name="pass" ngModel>
+     </div>
+         <button  [disabled]="loginForm.invalid" type="submit" class="btn btn-dark">Login</button>
+     </form>
+    </div>
 </div>
-<div class="loginalign">
-    <label>Password</label>
-    <input required  type="password" class="form-control" name="pass" ngModel>
-</div>
-    <button  [disabled]="loginForm.invalid" type="submit">Login</button>
-</form>

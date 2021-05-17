@@ -1,32 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Router} from '@angular/router'
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
-  valid=false
+
+  valid = false
   constructor(private router: Router) { }
 
-  ngOnInit(): void {}
-  secured=true;
-  submited(data){
-    
-    if (data.pass==localStorage.getItem("2")
-    &&data.user==localStorage.getItem("1")) {
-      localStorage.setItem("3","Valid")
-      console.log("works")
-      this.router.navigateByUrl('search')
-      }
-      else {
-        this.valid=true
-      }
+  ngOnInit(): void { }
+  //Authorization with local storage hard coded user/pass
+  submited(data) {
+    if (data.pass == localStorage.getItem("2")
+      && data.user == localStorage.getItem("1")) {
+        //this is used for verification on mainComponent
+      localStorage.setItem("3", "Valid")
+      this.router.navigateByUrl('main')
+    }
+    else {
+      this.valid = true
+    }
   }
-  closeAlert(){
-    this.valid=false
+  //x button
+  closeAlert() {
+    this.valid = false
   }
 
 }
